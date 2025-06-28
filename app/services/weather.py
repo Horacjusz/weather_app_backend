@@ -82,10 +82,8 @@ async def get_summary_data(params: ForecastRequestParams) -> SummaryResponse:
     temp_min = min(temp_mins)
     temp_max = max(temp_maxs)
 
-
     cloudy_days = sum(1 for code in weather_codes if code >= 1)
     is_cloudy_week = cloudy_days >= 4
-
 
     return SummaryResponse(
         avg_pressure=avg_pressure,
