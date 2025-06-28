@@ -35,7 +35,7 @@ async def test_summary_correct_aggregation(mock_get):
     assert summary.temp_max == 28.0
     assert round(summary.avg_pressure, 2) == 1002.5
     assert round(summary.avg_sun_hours, 2) == 7.5  # (10 + 5) h avg
-    assert summary.is_rainy_week is False
+    assert summary.is_cloudy_week is False
 
 
 @pytest.mark.asyncio
@@ -62,4 +62,4 @@ async def test_summary_detects_rainy_week(mock_get):
     params = ForecastRequestParams(lat=50.0, lon=20.0)
     summary = await get_summary_data(params)
 
-    assert summary.is_rainy_week is True
+    assert summary.is_cloudy_week is True

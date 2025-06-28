@@ -52,7 +52,7 @@ def test_summary_valid_request():
     assert "avg_sun_hours" in data
     assert "temp_min" in data
     assert "temp_max" in data
-    assert "is_rainy_week" in data
+    assert "is_cloudy_week" in data
 
 
 def test_summary_invalid_lat():

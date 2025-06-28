@@ -20,5 +20,5 @@ class SummaryResponse(BaseModel):
     avg_sun_hours: float
     temp_min: float
     temp_max: float
-    is_rainy_week: bool 
+    is_cloudy_week: bool 
 

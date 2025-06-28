@@ -82,8 +82,9 @@ async def get_summary_data(params: ForecastRequestParams) -> SummaryResponse:
     temp_min = min(temp_mins)
     temp_max = max(temp_maxs)
 
-    rainy_days = sum(1 for code in weather_codes if code >= 50)
-    is_rainy_week = rainy_days >= 4
+
+    cloudy_days = sum(1 for code in weather_codes if code >= 1)
+    is_cloudy_week = cloudy_days >= 4
 
 
     return SummaryResponse(
@@ -91,6 +92,6 @@ async def get_summary_data(params: ForecastRequestParams) -> SummaryResponse:
         avg_sun_hours=avg_sun_hours,
         temp_min=temp_min,
         temp_max=temp_max,
-        is_rainy_week=is_rainy_week
+        is_cloudy_week=is_cloudy_week
     )
 
