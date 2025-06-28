@@ -2,6 +2,10 @@ from fastapi import APIRouter, Query, HTTPException
 from app.models.request import ForecastRequestParams
 from app.models.response import ForecastResponse, SummaryResponse
 from app.services.weather import get_forecast_data, get_summary_data
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -17,7 +21,7 @@ async def forecast(
         params = ForecastRequestParams(lat=lat, lon=lon, power=power, efficiency=efficiency)
         return await get_forecast_data(params)
     except Exception as e:
-        print(f"Error fetching forecast data: {e}")
+        logger.exception("Error fetching forecast data:")
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -32,5 +36,5 @@ async def summary(
         params = ForecastRequestParams(lat=lat, lon=lon, power=power, efficiency=efficiency)
         return await get_summary_data(params)
     except Exception as e:
-        print(f"Error fetching summary data: {e}")
+        logger.exception("Error fetching forecast data:")
         raise HTTPException(status_code=500, detail=str(e))
