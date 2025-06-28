@@ -6,8 +6,6 @@ from app.models.response import ForecastDay, ForecastResponse, SummaryResponse
 
 API_URL = "https://api.open-meteo.com/v1/forecast"
 
-
-
 async def fetch_weather_data(params: ForecastRequestParams) -> dict:
     query = {
         "latitude": params.lat,
