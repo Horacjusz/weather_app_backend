@@ -3,3 +3,4 @@ httpx
 pydantic
 uvicorn
 pytest
+pytest-asyncio
